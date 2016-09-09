@@ -5,6 +5,10 @@ if test ! $(which brew); then
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# update homebrew 
+
+brew update #make sure we using the lastest homebrew
+
 echo -e "\n\n Installing homebrew packages ..."
 
 # Installing cli tools
@@ -19,7 +23,7 @@ brew install wget  #Retrieve  file using http, https and FTP
 
 
 echo -e "\n\n Installing cask"
-brew install cask  #Install software with ease usiing cask
+brew tap caskroom/cask  #Install software with ease using cask
 
 
 #  Installing Development tools
@@ -81,5 +85,18 @@ brew install zsh-autosuggestions #Autosuggestion for zsh
 
 echo -e "\n\n Installing neo vim "
 brew install neovim/neovim/neovim  # enhance vim
+
+
+#Install font tools 
+
+echo -e " Installing fonts"
+brew install sfnt2woff  # convert existing TrueType/OpenType font to WOFF format
+brew install woff2     #woff fonts
+brew tap bramstein/webfontstools
+
+# Installing operator mono from dropbox
+source ./operator-mono.sh
+
+
 
 exit 0;
