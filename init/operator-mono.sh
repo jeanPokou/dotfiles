@@ -7,10 +7,12 @@ tar -zxf op.tar.gz -C fonts/operatorMono
 cd fonts
 cd operatorMono
 find . -mindepth 1 -type f -print -exec mv {} .. \;
-rm -rf operatorMono
-mv *. /Library/Fonts/
-
+cd ..
+rm -rf operatorMono 
+cd ..
+mv fonts/*  /Library/Fonts/
 echo -e "\n\n Font Installed , cleaning files"
-rm op.tar.gz
+pwd
 rm -rf fonts
+rm -rf op.tar.gz
 echo -e "\n\n done Installing Operator Mono"
