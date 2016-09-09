@@ -60,3 +60,26 @@ brew install nvm #Node Version Manager
 
 echo -e "\n\n Installing z"
 brew install z # jump around folder 
+
+
+echo -e "\n\n Installing markdown"
+brew install markdown #Text to HTML conversion
+
+
+echo -e "\n\n Installing diff-so-fancy"
+brew install diff-so-fancy #git diff fancy display 
+
+
+echo -e "\n\n Installing zsh-syntax-highlighting"
+brew install zsh-syntax-highlighting  #highlight syntax in zsh 
+
+
+echo -e "\n\n Installing zsh-autosuggestions"
+brew install zsh-autosuggestions #Autosuggestion for zsh 
+
+# Install neoVim
+
+echo -e "\n\n Installing neo vim "
+brew install neovim/neovim/neovim  # enhance vim
+
+exit 0;
