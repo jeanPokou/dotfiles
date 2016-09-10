@@ -32,7 +32,7 @@ alias la="ls -laF ${colorflag}"
 alias ll="ls -larth ${colorflag}"
 
 #wifi password
-alias wf="wifi-password"
+alias wp="wifi-password"
 #alias vim 
 alias v="nvim"
 
