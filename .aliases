@@ -44,6 +44,9 @@ alias bi="bower install"
 
 # if hub installed use hub intead of git
 s-executable hub && eval "$(hub alias -s)" # alias git=hub
+
+#git log author
+alias gl="git log --author=$GIT_COMMITTER_EMAIL --oneline --all"
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
