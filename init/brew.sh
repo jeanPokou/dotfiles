@@ -13,6 +13,9 @@ echo -e "\n\n Installing homebrew packages ..."
 
 # Installing cli tools
 
+echo -e "\n\n Installing wifi-password"
+brew install wifi-password # get wifi-password
+
 echo -e "\n\n Installing gnu-sed"
 brew install gnu-sed --with-defaults-names # Replace system sed by gnu-sed, replace words in files and so many more 
 
@@ -43,7 +46,7 @@ brew install fzf  #Command line fuzzy finder
 
 
 echo -e "\n\n Installing macvim and overriding system vi"
-brew install macvim --override-system-vim  #macvim , add ios features to vim
+brew install macvim --with-override-system-vim  #macvim , add ios features to vim
 
 
 echo -e "\n\n Installing reattach-to-username"
@@ -58,11 +61,11 @@ echo -e "\n\n Installing Zsh"
 brew install zsh # Zsh terminal 
 
 #Use zsh as default shell
-if !fgrep -q 'usr/local/bin/zsh' /etc/shells; then
+if ! fgrep -q 'usr/local/bin/zsh' /etc/shells; then
 	echo "\n Setting up zsh as default shell "
-	echo "/usr/local/bin/zsh/' | sudo tee -a /etc/shells"
-	csh -s /usr/local/bin/zsh
-fi
+	echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells;
+	csh -s /usr/local/bin/zsh;
+fi;
 
 echo -e "\n\n Installing highlight"
 brew install highlight #syntax highlighter for several outputs formats 
@@ -99,16 +102,11 @@ brew install neovim/neovim/neovim  # enhance vim
 
 #Install font tools 
 
-echo -e "\n\n Installing fonts"
-brew install sfnt2woff  # convert existing TrueType/OpenType font to WOFF format
-brew install woff2     #woff fonts
-brew tap bramstein/webfontstools
-
 # Installing operator mono from dropbox
 source ./operator-mono.sh
 
 #Install recents versions of iOS tools
-
+brew cask install java
 brew install homebrew/dupes/grep #search for pattern in files
 brew install homebrew/dupes/openssh # remote login tools
 
@@ -136,16 +134,22 @@ brew install tcpflow
 brew install tcpreplay
 brew install tcptrace
 brew install ucspi-tcp # `tcpserver` etc.
-brew install xpdf
-brew install xzi
-#ask if user  want to install android-sdk as it several minutes
-echo "\n\n Do you want to install android-sdk? Notice: It will take several minutes to finish"
-select yn in "Yes" "No"; do
+#ask if user  want to install android-sdk as it takes  several minutes
+while true; do
+	read -p "\n\n Do you want to install android-sdk? Notice: It will take several minutes to finish" yn
 	case $yn in 
-		Yes ) brew install android-sdk
-		No ) exit;;
+		[Yes]* ) brew install android-sdk; break;;
+		[No]* ) exit;;
+		* ) echo "Please answer yes or no.";;
 	esac
 done
+
+brew cask install google-chrome
+brew cask install sublime
+brew cask install spotify
+brew cask install caffeine
+brew cask install spectacle
+brew install battery
 
 # removing outdated version of homebrew packages
 echo "\n\n Cleaning outaded version of packages"
