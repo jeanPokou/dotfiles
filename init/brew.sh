@@ -94,6 +94,12 @@ brew install zsh-syntax-highlighting  #highlight syntax in zsh
 echo -e "\n\n Installing zsh-autosuggestions"
 brew install zsh-autosuggestions #Autosuggestion for zsh 
 
+echo -e "\n\n Installing zplug, plugin package manager for zsh"
+curl -sL zplug.sh/installer | zsh
+
+#copy zsh bullet-train themes to '$ZSH_CUSTOM/themes'
+cp -f  ./zsh/bullet-train.zsh-theme $HOME/.oh-my-zsh/themes/
+
 # Install neoVim
 
 echo -e "\n\n Installing neo vim "
@@ -135,14 +141,11 @@ brew install tcpreplay
 brew install tcptrace
 brew install ucspi-tcp # `tcpserver` etc.
 #ask if user  want to install android-sdk as it takes  several minutes
-while true; do
-	read -p "\n\n Do you want to install android-sdk? Notice: It will take several minutes to finish" yn
-	case $yn in 
-		[Yes]* ) brew install android-sdk; break;;
-		[No]* ) exit;;
-		* ) echo "Please answer yes or no.";;
-	esac
-done
+read -p "\n\n Do you want to install android-sdk? Notice: It will take several minutes to finish ? " 
+echo "";
+if [[ $REPLY  =~ ^[Yy]$ ]]; then
+	brew install android-sdk;
+fi
 
 brew cask install google-chrome
 brew cask install sublime
