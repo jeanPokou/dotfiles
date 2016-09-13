@@ -1,4 +1,5 @@
 source ~/.config/nvim/plugins.vim
+"source ~/.config/nvim/autocomplete.vim
 
 " Section General {{{
 
@@ -280,8 +281,10 @@ command! FZFMru call fzf#run({
 \  'options': '-m -x +s',
 \  'down':    '40%'})
 
+
+
 "Adding deoplete on startup
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
 
 " Fugitive Shortcuts
 """""""""""""""""""""""""""""""""""""

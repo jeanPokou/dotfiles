@@ -36,14 +36,17 @@ Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } " distraction-free writing
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' } " focus tool. Good for presentating with vim
 Plug 'valloric/youcompleteme'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 " html / templates
 Plug 'mattn/emmet-vim', { 'for': 'html' } " emmet support for vim - easily create markdup wth CSS-like syntax
 Plug 'gregsexton/MatchTag', { 'for': 'html' } " match tags in html, similar to paren support
 Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
 Plug 'mustache/vim-mustache-handlebars' " mustach support
 Plug 'digitaltoad/vim-jade', { 'for': ['jade', 'pug'] } " jade support
+Plug 'SirVer/ultisnips'
 " Plug 'juvenn/mustache.vim', { 'for': 'mustache' } " mustache support
 
 " JavaScript
