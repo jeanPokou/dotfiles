@@ -7,6 +7,7 @@ fi
 
 # update homebrew
 
+
 brew update #make sure we using the lastest homebrew
 
 echo -e "\n\n Installing homebrew packages ..."
@@ -34,16 +35,26 @@ brew tap caskroom/cask  #Install software with ease using cask
 
 
 #  Installing Development tools
-echo -e "\n\n Installing Development tools"
+echo -e "\n\n Installing git "
 brew install git  #  github
 
-echo -e "\n\n Installing Development tools"
+echo -e "\n\n Installing hub  "
 brew install hub  # extend git features
 
 
 echo -e "\n\n Installing fzf "
 brew install fzf  #Command line fuzzy finder
 
+
+echo -e "\n \n installing ruby "
+brew install rbenv ruby-build
+
+#Add rbenv to bash so that it loads every time you open a terminal
+echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
+
+#gem install jekyll
+echo -e "\n \n Installing jekyll  "
+gem install jekyll
 
 echo -e "\n\n Installing macvim and overriding system vi"
 brew install macvim --with-override-system-vim  #macvim , add ios features to vim

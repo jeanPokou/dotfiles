@@ -2,7 +2,7 @@
 
 #Load Shell dotfiles, and path
 
-for file in ~/.{path,bash_prompt,exports,aliases,functions}; do
+for file in ~/.{,aliases,functions}; do
 	[ -r "$file" ] && [ -f "$file"] && source "$file";
 done;
 unset file;
@@ -13,4 +13,4 @@ shopt -s histappend
 # Autocorrect typos in path names when using cd
 shopt -s cdscpell
 
- 
+
