@@ -6,6 +6,7 @@ Plug 'dracula/vim'
 " utilities
 " Plug 'ctrlpvim/ctrlp.vim' " fuzzy file finder, mapped to <leader>t
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'ryanoasis/vim-devicons' " file drawer
+Plug 'jistr/vim-nerdtree-tabs'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
 Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 " Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
@@ -19,7 +20,9 @@ Plug 'benmills/vimux' " tmux integration for vim
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'benekastah/neomake' " neovim replacement for syntastic using neovim's job control functonality
+" github utilities
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
 Plug 'garbas/vim-snipmate' " snippet manager
 Plug 'editorconfig/editorconfig-vim' " .editorconfig support
@@ -55,7 +58,7 @@ Plug 'moll/vim-node', { 'for': 'javascript' } " node support
 Plug 'othree/yajs.vim', { 'for': 'javascript' } " JavaScript syntax plugin
 Plug 'othree/es.next.syntax.vim', { 'for': 'javascript' } " ES6 and beyond syntax
 Plug 'mxw/vim-jsx', { 'for': ['jsx', 'javascript'] } " JSX support
-
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
 " TypeScript
 " Plug 'Quramy/tsuquyomi', { 'for': 'typescript', 'do': 'npm install' } " extended typescript support - works as a client for TSServer
 " Plug 'clausreinke/typescript-tools.vim', { 'for': 'typescript' } " typescript tools

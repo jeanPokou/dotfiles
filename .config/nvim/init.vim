@@ -1,7 +1,40 @@
-source ~/.config/nvim/plugins.vim
-"source ~/.config/nvim/autocomplete.vim
+"Source for the plugins
 
-" Section General {{{
+source ~/.config/nvim/plugins.vim
+"==================================== UtilsSnip======================{{
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+"====================================================================}}
+
+"=============================GitGutter configs======================={{
+let g:gitgutter_max_signs = 1000
+"=====================================================================}}
+"
+"========================== vim-airline=============================={{
+let g:airline#extensions#tabline#enable = 1
+set hidden
+let g:airline#extension#tabline#fnamedmode = ':t'
+let g:airline#extensions#tabline#enabled = 1
+set hidden
+nmap <leader>t :term<cr>
+nmap <leader>n :bnext<CR>
+nmap <leader>. :bprevious<CR>
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+"}}
+"========================== Section General========================= {{{
 
 " Abbreviations
 abbr funciton function
@@ -36,7 +69,7 @@ highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 
 set number                  " show line numbers
-" set relativenumber          " show relative line numbers
+set relativenumber          " show relative line numbers
 
 set wrap                    " turn on line wrapping
 set wrapmargin=8            " wrap lines when coming within n characters from side
@@ -111,7 +144,7 @@ if has('mouse')
 	" set ttymouse=xterm2
 endif
 
-" }}}
+"=========================================================================== }}}
 
 " Section Mappings {{{
 
@@ -237,13 +270,6 @@ augroup END
 " FZF
 """""""""""""""""""""""""""""""""""""
 
-" Toggle NERDTree
-nmap <silent> <leader>k :NERDTreeToggle<cr>
-" expand to the path of the file in the current buffer
-nmap <silent> <leader>y :NERDTreeFind<cr>
-
-let NERDTreeShowHidden=1
-
 let g:fzf_layout = { 'down': '~25%' }
 
 if isdirectory(".git")
@@ -297,6 +323,44 @@ nmap <leader>m :MarkedOpen!<cr>
 nmap <leader>mq :MarkedQuit<cr>
 nmap <leader>* *<c-o>:%s///gn<cr>
 
+
+
+
+"=======================Configuration for NERDTree============{{
+"
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+"
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#141e23')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#141e23')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#141e23')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#141e23')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#141e23')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#141e23')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#141e23')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#141e23')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#141e23')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#141e23')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#141e23')
+call NERDTreeHighlightFile('js', 'yellow', 'none', '#f0da50', '#141e23')
+call NERDTreeHighlightFile('ts', 'Blue', 'none', '#6699cc', '#141e23')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#141e23')
+call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', '#141e23')
+call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#141e23')
+call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#141e23')
+call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#141e23')
+call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#141e23')
+"Toogle NERDTree
+nmap <silent> <leader>k :NERDTreeToggle<cr>
+"Expand to the path of the file in the current buffer
+nmap <silent> <leader>y :NERDTreeFind<cr>
+"Start NERDTree om startup of nvim or vim
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"============================================================}}
+let g:neomake_javascript_enabled_mmakers=['jscs','jshint']
+
 let g:neomake_javascript_jshint_maker = {
     \ 'args': ['--verbose'],
     \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
@@ -311,16 +375,6 @@ let g:neomake_typescript_tsc_maker = {
         \ '%Eerror %m,' .
         \ '%C%\s%\+%m'
 \ }
-
-" airline options
-let g:airline_powerline_fonts=1
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_theme='dracula'
-let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
-let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
-let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
-let g:airline#extensions#tabline#show_splits = 0
 
 
 " don't hide quotes in json files
