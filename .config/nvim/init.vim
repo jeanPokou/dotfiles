@@ -20,6 +20,34 @@ let g:airline#extensions#tabline#enable = 1
 set hidden
 let g:airline#extension#tabline#fnamedmode = ':t'
 let g:airline#extensions#tabline#enabled = 1
+
+let g:airline_powerline_fonts=1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+set guifont=Operator\ Mono\ Light\ Italic\ Nerd\ Font
+" airline symbols
+"jlet g:airline_left_sep = ''
+"let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''
 set hidden
 nmap <leader>t :term<cr>
 nmap <leader>n :bnext<CR>
@@ -33,7 +61,13 @@ nmap <leader>5 <Plug>AirlineSelectTab5
 nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
-"}}
+"let g:airline_theme="luna"
+"set guifont=Operator\ Mono\ Light\ Italic\ Nerd\ Font
+"====================================================================}}
+
+"========================== IndentLine==================================
+let g:IndentLine_char='|'
+
 "========================== Section General========================= {{{
 
 " Abbreviations
