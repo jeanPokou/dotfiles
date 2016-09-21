@@ -1,7 +1,11 @@
 "Source for the plugins
-
+"filetype off
 source ~/.config/nvim/plugins.vim
+filetype plugin indent on
 "==================================== UtilsSnip======================{{
+"let g:UltiSnipsSnippetsDir = "~/.config/nvim/snippets"
+"let g:UltiSnipsSnippetDirectories=["UltiSnips", "snips"]
+"let g:UltiSnipsEditSplit= "context"
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
 let g:UltiSnipsExpandTrigger           = '<tab>'
@@ -10,7 +14,6 @@ let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 "====================================================================}}
-
 "=============================GitGutter configs======================={{
 let g:gitgutter_max_signs = 1000
 "=====================================================================}}
@@ -39,12 +42,13 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.readonly ='R' 
 set guifont=Operator\ Mono\ Light\ Italic\ Nerd\ Font
 " airline symbols
-"jlet g:airline_left_sep = ''
+"let g:airline_left_sep = ''
 "let g:airline_left_alt_sep = ''
 " let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+let g:airline_right_alt_sep = ''
 "let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 "let g:airline_symbols.linenr = ''
@@ -67,7 +71,17 @@ nmap <leader>8 <Plug>AirlineSelectTab8
 
 "========================== IndentLine==================================
 let g:IndentLine_char='|'
-
+"========================== Js Beautify ==============================={{
+autocmd FileType javascript noremap <buffer>  <c-b> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-b> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-b> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-b> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-b> :call CSSBeautify()<cr>
+"======================================================================"}}
 "========================== Section General========================= {{{
 
 " Abbreviations
@@ -389,12 +403,17 @@ call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#141e23')
 "Toogle NERDTree
 nmap <silent> <leader>k :NERDTreeToggle<cr>
 "Expand to the path of the file in the current buffer
-nmap <silent> <leader>y :NERDTreeFind<cr>
+nmap <silent> <leader>j :NERDTreeFind<cr>
 "Start NERDTree om startup of nvim or vim
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "============================================================}}
-let g:neomake_javascript_enabled_mmakers=['jscs','jshint']
-
+"==================== Remember cursor position between vim sessions ====================
+  autocmd BufReadPost *
+              \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+              \   exe "normal! g'\"" |
+              \ endif
+              " center buffer around cursor when opening files
+"====================================Neomake =========================={{
 let g:neomake_javascript_jshint_maker = {
     \ 'args': ['--verbose'],
     \ 'errorformat': '%A%f: line %l\, col %v\, %m \(%t%*\d\)',
@@ -410,6 +429,27 @@ let g:neomake_typescript_tsc_maker = {
         \ '%C%\s%\+%m'
 \ }
 
+let g:neomake_warning_sign = {
+  \ 'text': 'W>',
+  \ 'texthl': 'WarningMsg',
+  \ }
+ let g:neomake_error_sign = {
+        \ 'text': 'E>',
+        \ 'texthl': 'ErrorMsg',
+        \ }
+autocmd! BufWritePost * Neomake
+autocmd BufEnter * Neomake
+autocmd InsertChange,TextChanged * update | Neomake
+set undodir=~/.config/nvim/undodir
+set undofile
+" neomake
+nmap <Leader><Space>o :lopen<CR>      " open location window
+nmap <Leader><Space>c :lclose<CR>     " close location window
+nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+nmap <Leader><Space>n :lnext<CR>      " next error/warning
+nmap <Leader><Space>p :lprev<CR>      " previous error/warning
+
+"==================================================================}}
 
 " don't hide quotes in json files
 let g:vim_json_syntax_conceal = 0

@@ -30,6 +30,8 @@ Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache fil
 Plug 'tomtom/tlib_vim' " utility functions for vim
 Plug 'sotte/presenting.vim', { 'for': 'markdown' } " a simple tool for presenting slides in vim based on text files
 Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab
+Plug 'valloric/youcompleteme'
+Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-dispatch' " asynchronous build and test dispatcher
 Plug 'tpope/vim-vinegar'
 Plug 'AndrewRadev/splitjoin.vim' " single/multi line code handler: gS - split one line into multiple, gJ - combine multiple lines into one
@@ -38,8 +40,9 @@ Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
 Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } " distraction-free writing
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' } " focus tool. Good for presentating with vim
-Plug 'valloric/youcompleteme'
-" Snippets are separated from the engine. Add this if you want them:
+Plug 'Yggdroot/indentLine'
+Plug 'maksimr/vim-jsbeautify'
+" Snippets are separated from the engine. Add this if you want them
 Plug 'honza/vim-snippets'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
@@ -49,7 +52,6 @@ Plug 'gregsexton/MatchTag', { 'for': 'html' } " match tags in html, similar to p
 Plug 'othree/html5.vim', { 'for': 'html' } " html5 support
 Plug 'mustache/vim-mustache-handlebars' " mustach support
 Plug 'digitaltoad/vim-jade', { 'for': ['jade', 'pug'] } " jade support
-Plug 'SirVer/ultisnips'
 " Plug 'juvenn/mustache.vim', { 'for': 'mustache' } " mustache support
 
 " JavaScript
