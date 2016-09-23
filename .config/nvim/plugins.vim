@@ -20,6 +20,8 @@ Plug 'benmills/vimux' " tmux integration for vim
 Plug 'vim-airline/vim-airline' " fancy statusline
 Plug 'vim-airline/vim-airline-themes' " themes for vim-airline
 Plug 'benekastah/neomake' " neovim replacement for syntastic using neovim's job control functonality
+
+Plug 'junegunn/vim-emoji'  "Emoji in vim
 " github utilities
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'airblade/vim-gitgutter'

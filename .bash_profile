@@ -1,16 +1,5 @@
-# Add '~/bin' to the '$PATH'
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+source ~/.tmux.conf 
 
-#Load Shell dotfiles, and path
-
-for file in ~/.{,aliases,functions}; do
-	[ -r "$file" ] && [ -f "$file"] && source "$file";
-done;
-unset file;
-
-# Append to the bash history profile when using 'cd''
-shopt -s histappend
-
-# Autocorrect typos in path names when using cd
-shopt -s cdscpell
-
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
