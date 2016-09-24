@@ -17,7 +17,8 @@ let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 "=============================GitGutter configs======================={{
 let g:gitgutter_max_signs = 1000
 "=====================================================================}}
-"
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 "========================== vim-airline=============================={{
 let g:airline#extensions#tabline#enable = 1
 set hidden
@@ -63,6 +64,7 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.readonly ='R' 
 set guifont=Operator\ Mono\ Light\ Italic\ Nerd\ Font
+"set guifont=Roboto\ Mono\ Medium\ for\ \powerline
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.readonly =emoji#for('eyeglasses') 
 set hidden

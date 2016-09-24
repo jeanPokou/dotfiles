@@ -14,6 +14,8 @@ echo -e "\n\n Installing homebrew packages ..."
 
 # Installing cli tools
 
+echo -e "installing iterm2"
+brew install iterm2     #improved version of terminal
 echo -e "\n\n Installing wifi-password"
 brew install wifi-password # get wifi-password
 
