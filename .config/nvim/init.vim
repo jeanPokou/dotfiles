@@ -19,6 +19,9 @@ let g:gitgutter_max_signs = 1000
 "=====================================================================}}
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+" Remap emmet to <C-Z>
+let g:user_emmet_leader_key='<C-Z>'
+set cursorline
 "========================== vim-airline=============================={{
 let g:airline#extensions#tabline#enable = 1
 set hidden
